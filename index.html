@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Reconversion de friches potentielles</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" >
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" ></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+		<link href="assets/style.css" rel="stylesheet" type="text/css" />
+    <!-- Custom styles for this template -->
+    <link href="sticky-footer.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+ <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin=""></script>
+	 <script src="assets/javascript.js"></script>
+
+</head>
+<body>
+<div class="d-flex flex-column min-vh-100">
+
+<!-- Header -->
+<div class="sticky-top">
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+	<div class="container-fluid">
+    <a class="navbar-brand" href="index.html"><img src="images\logo4D.png" alt="Accueil" width="50" height="50"></a>
+
+	<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+
+	</button>
+
+	<div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+      <ul class="navbar-nav me-auto mb-2 mb-md-0">
+	  <li class="nav-item">
+		<a class="nav-link" href="#ctxt">Contexte</a>
+		</li>
+		<li class="nav-item">
+		<a class="nav-link" href="#friches">Les friches potentielles</a>
+		</li>
+		<li class="nav-item">
+		<a class="nav-link" href="#lafri">Friche retenue</a>
+		</li>
+		<li class="nav-item">
+		<a class="nav-link" href="#sce">Scénario proposé</a>
+		</li>
+		<li class="nav-item">
+		<a class="nav-link" href="tech.html">Réalisations techniques</a>
+		</li>
+      </ul>
+
+	  <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Rechercher" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit"><img src="loupe.png" style="width:30px"></button>
+        </form>
+    </div>
+  </div>
+</nav>
+
+</div>
+<!-- Partie principale -->
+    <main class="flex-fill">
+			<div class="container">
+			<div class="row">
+			<div class="col-lg-12">
+			<h1 id="ctxt">Contexte</h1>
+				<h2>Le sujet</h2>
+				<p>Reconversion d’une friche potentielle en projet de développement et d’aménagement durable à vocation principale d’habitat​
+					<br><br>
+					La Région Île-de-France recense des friches potentielles afin de développer sur les emprises disponibles des 
+					projets d’habitat, de renaturation, de reconversion industrielle, de fermes biologiques, etc.
+					<br><br>
+					Le but du projet est de classer les friches de la ville de Choisy-le-Roi pour ensuite proposer une idée d'amménagement
+					sur une des friches.</p>
+				
+				<h2>Situation Géographique</h2>
+				<p>Notre étude de friches se déroule à Choisy-le-Roi (94).</p>
+					<div id="map"></div>
+					<script>
+						var map = L.map('map').setView([48.763, 2.409], 13);
+
+						L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+							attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+						}).addTo(map);
+
+						L.marker([48.763, 2.409]).addTo(map)
+							.bindPopup("Zone d'étude : Choisy-le-Roi")
+							.openPopup();
+					</script>
+					<br>
+				
+				<h2>Les objectifs</h2>
+				<p>À partir de l’extrait de la base données des sites potentiellement mutables et des bases de données fournies, 
+				nous allons cibler le site le plus approprié à un projet d’habitat. Puis modéliser en 3D le projet de logement dans le tissu urbain existant.
+				Présenter le projet dans un document en expliquant les raisons du choix de l’emprise sélectionnée.​</p>
+				<p>Pour ce faire, Nous disposons des outils suivants : Cityengine, SketchUp, Google Earth, ArcgisPro, ArcgisOnline, Lumion​
+					</p><p>Les rendus demandés sont les suivants : Images, fichiers sources (dossier de géotraitement et BD finale), pdf des fiches détaillées, 
+					​</p>
+			
+			<h1 style="inline" id="friches">Les friches potentielles</h1>
+			<p>Pour commencer, nous avons affiché les 11 friches initiales sur ArcGIS Online afin de commencer nos traitements.</p>
+			<iframe
+				id="inlineFrameExample"
+				title="Inline Frame Example"
+				width="100%"
+				height="20%"
+				src="https://arcgis.com/apps/webappviewer/index.html?id=05285e6506724adfade134d290c672dd">
+			</iframe>
+			<p>Une fois nos 11 friches récupérées, nous les avons classées en fonction de nombreux critères positifs comme négatifs.
+			(Voir tableau ci-dessous)</p>
+			<img src="images/Criteres.png" alt="Criteres" class="center">
+			<p>Voici ci-dessous le pdf regroupement toutes les friches avec leurs réponses aux différents indicatifs.</p>
+			<iframe src="Friches_potentielles.pdf" align="center" width="500px" height="500px"></iframe>
+			
+			<h1 id="lafri">Friche retenue</h1>
+				<h2>Critères de sélection</h2>
+				<p>Nous devions initialement classer les friches pour pouvoir choisir la plus adéquate, mais par manque de temps nous avons choisi "au feeling".</p>
+				<p>J'ai choisi la friche "Marathon1_113" pour sa taille et sa proximité à l'autoroute:
+			<img src="images/Friche_earth.png" alt="Les friches">
+			<p> J'ai ensuite réalisé différents scénarios sur cette friche.</p>
+			
+			<h1 id ="sce">Scénario n°1 : Zone mixte</h1>
+				<h2>Explications des modifications</h2>
+				Pour ce premier scénario, j'ai opté pour une zone d'habitat mixte avec des bureaux, des commerces, des logements collectifs et individuels
+				un gymnase et un hôpital.</p>
+				<h2>Rendus modélisation</h2>
+				<p>Voici ci-dessous un slider avec différents points de vue (appuyer sur les points si cela ne fonctionne pas)</p>
+				<div class="slider-container">
+					<div class="menu">
+						<label for="slide-dot-1"></label>
+						<label for="slide-dot-2"></label>
+						<label for="slide-dot-3"></label>
+						<label for="slide-dot-4"></label>
+						<label for="slide-dot-5"></label>
+					</div>
+
+					<input class="slide-input" id="slide-dot-1" type="radio" name="slides" checked>
+					<img class="slide-img" src="images/sc1_all.png">
+
+					<input class="slide-input" id="slide-dot-2" type="radio" name="slides">
+					<img class="slide-img" src="images/sc1_habi.png">
+
+					<input class="slide-input" id="slide-dot-3" type="radio" name="slides">
+					<img class="slide-img" src="images/sc1_gym.png">
+					
+					<input class="slide-input" id="slide-dot-4" type="radio" name="slides">
+					<img class="slide-img" src="images/sc1_hopi.png">
+					
+					<input class="slide-input" id="slide-dot-5" type="radio" name="slides">
+					<img class="slide-img" src="images/sc1_rue.png">
+					</div>
+
+			<h1 id ="sce">Scénario n°2 : Quartier Universitaire</h1>
+				<h2>Explications des modifications</h2>
+				<p>Pour ce second scénario j'ai réalisé une "ville étudiante".
+				<br>
+				Cette cité étudiante comprend:
+				<ul>
+				  <li>Une université (en bleu)</li>
+				  <li>Un parking</li>
+				  <li>Un îlot de logement étudiants (en gris)</li>
+				  <li>Un îlot de logements individuels (en vert)</li>
+				</ul>
+				<h2>Rendus modélisation</h2>
+				<p>Voici ci-dessous un slider avec différents points de vue (appuyer sur les points si cela ne fonctionne pas)</p>
+				
+				<div class="slider-container">
+					<div class="menu">
+						<label for="slide-dot-6"></label>
+						<label for="slide-dot-7"></label>
+						<label for="slide-dot-8"></label>
+						<label for="slide-dot-9"></label>
+					</div>
+
+					<input class="slide-input" id="slide-dot-6" type="radio" name="slides" checked>
+					<img class="slide-img" src="images/sc2_all.png">
+
+					<input class="slide-input" id="slide-dot-7" type="radio" name="slides">
+					<img class="slide-img" src="images/sc2_log.png">
+
+					<input class="slide-input" id="slide-dot-8" type="radio" name="slides">
+					<img class="slide-img" src="images/sc2_park.png">
+					
+					<input class="slide-input" id="slide-dot-9" type="radio" name="slides">
+					<img class="slide-img" src="images/sc2_uni.png">
+					</div>
+			
+			<a href="tech.html"><h1>Réalisations techniques</h1></a>
+			
+			
+			
+			</div>
+			</div>
+			</div>
+			
+			
+			
+			
+    </main>
+
+<!-- Footer -->
+<!--<footer class="footer mt-auto py-3 bg-dark">
+    <p class="text-center text-muted">&copy; Cléis BENOIT-GONIN, janvier 2024</p>
+		<p class="text-center">Données spatiales | Esri, terrain</p>
+		<p class="text-center">Images<strong></p>
+  </footer>-->
+</div>
+
+  <!--<script src="../assets/dist/js/bootstrap.bundle.min.js"></script>-->
+</body>
+</html>
